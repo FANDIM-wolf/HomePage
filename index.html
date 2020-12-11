@@ -3,24 +3,47 @@
 <head>
 	<title>Home page</title>
 </head>
+<style type="text/css">
+#block{
+	background:green;
+	width: 10px;
+	height: 100px; 
+}	
+
+
+</style>
 <body>
 
 <h1>Home page :</h1>
+<br>
+<input type="text" class="form-control" id="inp_1">
+<input type="submit" onclick="main()" name="start">
+
+<br>
+<div id="block" >
+ <p>First block</p>
+</div>	
 
 
 <script type="text/javascript">
-	var OBJECT = {
-		name:"Fedor",
-		age:32,
-        show:function(){
-        	document.write("OBJECT"+":name"+this.name+"<br>");
-        	document.write("OBJECT"+":age"+this.age+"<br>");
-        }
-     
-	}
-    OBJECT.age++;
-	OBJECT.show();
+    /*method to get 
+    random function , Math.random give random number about ZERO*/
 
+   
+
+    function main(){
+         input_1 = document.getElementById('inp_1').value;
+    	 max = 85;
+    	 min = 35;
+    	 random_number = min + Math.floor((max - min) * Math.random()) ;  
+         random_number = random_number.toString();
+         
+         
+    	document.getElementById("block").style.width = random_number+"px";
+    	document.write(input_1);
+    }
+   
+   
 </script>
 </body>
 </html>
