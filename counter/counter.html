@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<style type="text/css">
+#block{
+  background:green;
+  width: 100px;
+  height: 100px;
+  color :white;
+  font-size: 24px;
+  margin-left: 0px;
+  margin-top:0px; 
+} 
+
+
+
+</style>
+<button id="button" >Push</button>
+<button id="buttonD" >Push down</button>
+<p id="text">Counter</p>
+<div id="block" >
+ <p>First player</p>
+</div>
+<br>
+
+<script type="text/javascript">
+  var button = document.getElementById("button");
+  var buttonD = document.getElementById("buttonD");
+  var i = 0; // начальное значение
+  
+  button.addEventListener('click', function(e) {
+  i = i + 20;
+  document.getElementById("text").innerHTML = i;
+  document.getElementById("block").style.marginLeft = i+"px";
+  });
+  buttonD.addEventListener('click', function(e) {
+  i = i + 20;
+  document.getElementById("text").innerHTML = i;
+  document.getElementById("block").style.marginTop = i+"px";
+  });
+</script>
+</body>
+</html>
