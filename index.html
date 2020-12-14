@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home page</title>
+	<title>SimpleBet</title>
 </head>
 <style type="text/css">
 #block{
 	background:green;
-	width: 10px;
-	height: 100px; 
+	width: 100px;
+	height: 100px;
+	color :white;
+	font-size: 24px; 
+}	
+#block2{
+	background:blue;
+	width: 100px;
+	height: 100px;
+	color :white;
+	font-size: 24px; 
+}	
+#block3{
+	background:red;
+	width: 100px;
+	height: 100px;
+	color :white;
+	font-size: 24px; 
 }	
 
 
 </style>
 <body>
 
-<h1>Home page :</h1>
+<h1>Simple Bet :</h1>
 <br>
-<input type="text" class="form-control" id="inp_1">
+<input type="text" class="form-control" id="inp_1" placeholder="first or second or third">
+
 <input type="submit" onclick="main()" name="start">
 
 <br>
 <div id="block" >
- <p>First block</p>
+ <p>First player</p>
+</div>
+<br>
+<div id="block2" >
+ <p>Second player</p>
+</div>
+<br>
+<div id="block3" >
+ <p>Third player</p>
 </div>	
+<br>
+<h1>Winner:</h1>
+<h2 id="Winner"></h2>
+<br>
 
-
+<h3>Total prize::</h3>
+<p id="Winner_Prize"> </p>
 <script type="text/javascript">
-    /*method to get 
-    random function , Math.random give random number about ZERO*/
+ function main(){
+ 	     var Prize = 0;
+ 	     Winner_Name = document.getElementById('Winner');
+ 	     Winner_Prize = document.getElementById('Winner_Prize');   
+         bet = document.getElementById('inp_1').value;
+         bet = bet.toString();
+    	 max = 700;
+    	 min = 100;
+    	 random_number_for_block1 = min + Math.floor((max - min) * Math.random()) ;  
+         random_number_for_block1 = random_number_for_block1.toString();
+         random_number_for_block2 = min + Math.floor((max - min) * Math.random()) ;  
+         random_number_for_block2 = random_number_for_block2.toString();
+         random_number_for_block3 = min + Math.floor((max - min) * Math.random()) ;  
+         random_number_for_block3 = random_number_for_block3.toString();
+          
+         var winner; //variable to win
+         if (random_number_for_block1 > random_number_for_block2 && random_number_for_block3){
+         	winner = "first";
+         }
+         if(random_number_for_block2 > random_number_for_block3 && random_number_for_block1){
+         	winner = "second";
+         } 
+         if (random_number_for_block3 > random_number_for_block2 && random_number_for_block1){
+         	winner = "third";
+         }
 
-   
 
-    function main(){
-         input_1 = document.getElementById('inp_1').value;
-    	 max = 85;
-    	 min = 35;
-    	 random_number = min + Math.floor((max - min) * Math.random()) ;  
-         random_number = random_number.toString();
-         
-         
-    	document.getElementById("block").style.width = random_number+"px";
-    	document.write(input_1);
+         document.getElementById("block").style.width = random_number_for_block1+"px";
+         document.getElementById("block2").style.width = random_number_for_block2+"px";
+         document.getElementById("block3").style.width = random_number_for_block3+"px";
+         Winner_Name.innerHTML=winner;
+
+         if(bet==winner){
+         	Prize=Prize+1000;
+         	
+         	Winner_Prize.innerHTML=Prize;
+         }  
+    	
     }
    
-   
+         
 </script>
 </body>
 </html>
