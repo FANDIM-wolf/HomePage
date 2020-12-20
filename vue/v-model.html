@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js Model</title>
+</head>
+<body>
+<div id="app">
+
+  <h3>V-model derective</h3>
+  <input v-model="developer">
+
+	<br>
+   <p>{{ developer }}</p>
+  
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script type="text/javascript">
+  
+var app = new Vue({
+  el: '#app',
+  data: {
+    developer:'Michael Stainer'
+  }
+  
+})
+</script>
+
+</body>

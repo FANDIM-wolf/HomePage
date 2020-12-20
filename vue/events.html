@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue.js Events</title>
+</head>
+<body>
+<div id="app">
+
+ <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">Перевернуть сообщение</button>
+	<br>
+   <p>{{ developer }}</p>
+  
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script type="text/javascript">
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Привет, Vue.js!',
+    developer:'Michael Stainer'
+  },
+  methods: {
+    reverseMessage: function () {
+      this.message = this.message.split('').reverse().join('')
+    }
+  }
+})
+</script>
+
+</body>
