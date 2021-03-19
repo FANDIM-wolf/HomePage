@@ -1,0 +1,20 @@
+#panel{
+    max-width:645px;
+    background-color: aqua;
+    color:white;
+    width: 345px;
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    
+}
+a{  
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 22px;
+    
+}
