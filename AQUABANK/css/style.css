@@ -1,8 +1,8 @@
 #panel{
-    max-width:645px;
+    max-width:845px;
     background-color: aqua;
     color:white;
-    width: 345px;
+    width: 545px;
     height: 70px;
     display: flex;
     justify-content: space-evenly;
@@ -10,11 +10,22 @@
     
 }
 a{  
-    margin-top: 15px;
+    margin-top: 20px;
     text-align: center;
     text-decoration: none;
     color: white;
     font-family: 'Times New Roman';
-    font-size: 22px;
+    font-size: 26px;
     
+}
+
+.input_class{
+    width:400px;
+    height:50px;
+}
+.button_aqua{
+    width:80px;
+    height:35px;
+    background-color: aqua;
+    color:white;
 }

@@ -8,7 +8,7 @@
 <br>
 
 <div class="main">
-    <img src="images/aquabank_logo.png" width="590" height="300">
+    <img src="images/aquabank_logo.png" width="550" height="300">
     <div id="panel">
     <a href="index.php">Main</a>
     <a href="index.php">Get card</a>
@@ -35,12 +35,7 @@
     " id="but"  onclick="Calculate_result();"  >Calculate</button>
 
     <br>
-    <div id="block" style="display:none;">
-    <h3 style="font-family: 'Times New Roman';
-    font-size: 26px;">Result in one year:</h3>
-    <p style="font-family: 'Times New Roman';
-    font-size: 26px;"  class="parag"></p>
-    </div>
+    <p class="parag"></p>
 </div>
 </center>
 
@@ -48,13 +43,11 @@
    function Calculate_result()
    {
        var contrib = document.getElementById('input_contribution').value;
-       var percent = document.getElementById('input_year').value;
-       var block = document.getElementById('block');
-       block.style.display = "block";
-       var result = (contrib*percent)/100;
-       
+       var percent = document.getElementById('input_year');
+    
 
-       document.querySelector('.parag').innerHTML=result; 
+
+       document.querySelector('.parag').innerHTML=contrib; 
    }
 </script>
 </html> 
