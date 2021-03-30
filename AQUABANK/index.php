@@ -11,8 +11,8 @@
     <img src="images/aquabank_logo.png" width="590" height="300">
     <div id="panel">
     <a href="index.php">Main</a>
-    <a href="index.php">Get card</a>
-    <a href="index.php">Show my data</a>
+    <a href="get_card.php">Get card</a>
+    <a href="data.php">Show my data</a>
     </div>
     <br>
     <h3>Your contribution</h3>
@@ -43,6 +43,8 @@
     </div>
 </div>
 </center>
+
+
 
 <script  text="javascript">
    function Calculate_result()

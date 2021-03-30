@@ -15,39 +15,43 @@
     <a href="index.php">Show my data</a>
     </div>
     <br>
-    <h3>Your contribution</h3>
+    
+    <form method="post" action="">
     <input style="width:360px;
-    height:35px;" type="number" id="input_contribution"  >
+    height:35px;" type="text"  value="none" name="name_in" placeholder="name"   >
     <br>
-    <h3>Year percent %</h3>
-    <input style="width:360px;
-    height:35px;"  type="number" id="input_year"   >
-    <br>
-    <br>
-    <button style="width:180px;
-    border:aqua;  
-    height:45px;
-    background-color: aqua;
-    color:white;
-    border-radius:25px;
-    font-family: 'Times New Roman';
-    font-size: 26px;
-    " id="but"  onclick="Calculate_result();"  >Calculate</button>
+   <input style="width:360px;
+    height:35px;" type="text"  value="none" name="surname_in" placeholder="surname"   >
 
     <br>
+    <input type="submit"  >
+    </form>
     <p class="parag"></p>
 </div>
 </center>
+<?php
+    //connect to db
+    $db = mysqli_connect("localhost","root","","db_my");
+    $name;
+    $surname;
+    $name=$_POST['name_in'];
+    $surname= $_POST['surname_in'];
 
+    $str = mysqli_query($db,"SELECT * FROM users  WHERE  name='$name' AND surname='$surname' ");
+     // it returns object with information from data base , list exactly
+
+    if($str){
+        echo "yes";
+    }
+    else{
+        echo "no";
+    }
+    while($rows=mysqli_fetch_assoc($str)){
+        echo $rows["name"];
+    }
+
+?>
 <script  text="javascript">
-   function Calculate_result()
-   {
-       var contrib = document.getElementById('input_contribution').value;
-       var percent = document.getElementById('input_year');
-    
-
-
-       document.querySelector('.parag').innerHTML=contrib; 
-   }
+   
 </script>
 </html> 

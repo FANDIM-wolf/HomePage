@@ -3,7 +3,7 @@
     <title>AQUA BANK</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
-
+<body>
 <center>
 <br>
 
@@ -11,43 +11,60 @@
     <img src="images/aquabank_logo.png" width="550" height="300">
     <div id="panel">
     <a href="index.php">Main</a>
-    <a href="index.php">Get card</a>
+    <a href="get_card.php">Get card</a>
     <a href="index.php">Show my data</a>
     </div>
     <br>
-    <h3>Your contribution</h3>
+    <h3>Write down your data </h3>
+    <form method="post" action="">
     <input style="width:360px;
-    height:35px;" type="number" id="input_contribution"  >
+    height:35px;" type="text"  value="none" name="name_in" placeholder="name"   >
     <br>
-    <h3>Year percent %</h3>
+   <input style="width:360px;
+    height:35px;" type="text"  value="none" name="surname_in" placeholder="surname"   >
+    <br>
     <input style="width:360px;
-    height:35px;"  type="number" id="input_year"   >
+    height:35px;" type="text"  value="none" name="email_in" placeholder="email"   >
     <br>
+    <input style="width:360px;
+    height:35px;" type="text"  value="none" name="address_in" placeholder="address"   >
     <br>
-    <button style="width:180px;
-    border:aqua;  
-    height:45px;
-    background-color: aqua;
-    color:white;
-    border-radius:25px;
-    font-family: 'Times New Roman';
-    font-size: 26px;
-    " id="but"  onclick="Calculate_result();"  >Calculate</button>
-
+    <input type="submit">
     <br>
-    <p class="parag"></p>
+    </form>
 </div>
+
 </center>
 
-<script  text="javascript">
-   function Calculate_result()
-   {
-       var contrib = document.getElementById('input_contribution').value;
-       var percent = document.getElementById('input_year');
+<?php 
+
+//connect to db
+$db = mysqli_connect("localhost","root","","db_my");
+if(!$db){
+    echo "Error to connect to MySQL";
+
+}
+else{
+    $str = 'SELECT `name` , `surname` FROM users ';
+    $query =mysqli_query($db,$str); // it returns object with information from data base , list exactly
+
+   
+}
+
+$name_user = $_POST['name_in'];
+$surname=$_POST['surname_in'];
+$email = $_POST['email_in'];
+$address = $_POST['address_in'];
+
+    $sql = "INSERT INTO `users` ( `name`,`surname`,`email`,`address`) 
+    VALUES('$name_user','$surname','$email','$address')";
+    mysqli_query($db,$sql);
     
+    $db->close();
+?>
 
 
-       document.querySelector('.parag').innerHTML=contrib; 
-   }
-</script>
+
+<body>
+
 </html> 
